@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript unit test file</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <script src="../assets/jsunittest.js"></script>
+  <script src="../../lib/prototype.js"></script>
+  <script src="../../src/livepipe.js"></script>
+  <script src="../../src/contextmenu.js"></script>
+  <link rel="stylesheet" href="../assets/unittest.css" type="text/css" />
+  <style>
+    #testcss1 { font-size:11px; color: #f00; }
+    #testcss2 { font-size:12px; color: #0f0; display: none; }
+  </style>
+</head>
+<body>
+
+<div id="content">
+  <div id="header">
+    <h1>JavaScript unit test file</h1>
+    <p>This file tests <strong>contextmenu.js</strong>.</p>
+  </div>
+  <div id="testlog"></div>
+  <div id="sample">
+    <div id="a">right-click me</div>
+  </div>
+</div>
+
+<script>
+new Test.Unit.Runner({
+    setup: function() {
+
+    },
+
+    teardown : function () {
+
+    },
+
+    // Items added with addItem should be enabled by default
+    testAddedItemsEnabledByDefault : function () {
+        var c = new Control.ContextMenu("a");
+        c.addItem({ label : "Test" });
+        this.assert(c.items[0].enabled);
+    }
+}); 
+</script>
+</body>
+</html>
