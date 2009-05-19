@@ -1,0 +1,3 @@
+[submodule "jsunittest"]
+	path = jsunittest
+	url = /home/smith/apps/livepipe-ui-smith/vendor/jsunittest/.git
