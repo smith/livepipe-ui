@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript unit test file</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <script src="../assets/jsunittest.js"></script>
+  <script src="../../lib/prototype.js"></script>
+  <script src="../../src/livepipe.js"></script>
+  <script src="../../src/rating.js"></script>
+  <link rel="stylesheet" href="../assets/unittest.css" type="text/css" />
+</head>
+<body>
+
+<div id="content">
+  <div id="header">
+    <h1>JavaScript unit test file</h1>
+    <p>This file tests <strong>window.js</strong>.</p>
+  </div>
+  <div id="testlog"></div>
+  <div id="sample">
+    <div id="a">
+      <select id="aselect">
+        <option selected="selected">1</option>         
+      </select>
+      <div id="arating"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+new Test.Unit.Runner({
+    setup: function() {
+
+    },
+
+    teardown : function () {
+
+    },
+
+    // A rating populated with setValueFromOption should use the contents
+    // of the option if no explicit value is set
+    // See #36
+    testGetsValueFromImplicitInputValue : function () {
+        var r = new Control.Rating("arating", { input: "aselect" });
+        this.assertEqual(1, r.value);
+    }
+}); 
+</script>
+</body>
+</html>
