@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript unit test file</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <script src="../assets/jsunittest.js"></script>
+  <script src="../../lib/prototype.js"></script>
+  <script src="../../src/livepipe.js"></script>
+  <script src="../../src/selectmultiple.js"></script>
+  <link rel="stylesheet" href="../assets/unittest.css" type="text/css" />
+  <style>
+    #testcss1 { font-size:11px; color: #f00; }
+    #testcss2 { font-size:12px; color: #0f0; display: none; }
+  </style>
+</head>
+<body>
+
+<div id="content">
+  <div id="header">
+    <h1>JavaScript unit test file</h1>
+    <p>This file tests <strong>selectmultiple.js</strong>.</p>
+  </div>
+  <div id="testlog"></div>
+  <div id="sample">
+      <div id="a">
+        <select id="aselect">
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+        <div id="aboxes">
+            <input type="checkbox" value="1" />
+            <input type="checkbox" value="2" />
+        </div>
+        <div id="ac"></div>
+      </div>
+  </div>
+</div>
+
+<script>
+new Test.Unit.Runner({
+    setup: function() {
+
+    },
+
+    teardown : function () {
+
+    },
+
+    // The afterChange event should pass an empty string as its first argument
+    // if no boxes are checked
+    testAfterChangePassesEmptyStringWhenNoItemsSelected : function () {
+        var s = new Control.SelectMultiple("aselect", "aboxes", {
+            afterChange : function (v) {
+                this.assertIdentical("", v); 
+            }.bind(this)
+        });
+        s.checkboxes[0].checked = false;
+    }
+}); 
+</script>
+</body>
+</html>
