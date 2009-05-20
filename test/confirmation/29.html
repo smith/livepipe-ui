@@ -3,7 +3,6 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <title>JavaScript unit test file</title>
-  <script src="../assets/jsunittest.js"></script>
   <script src="../../lib/prototype.js"></script>
   <script src="../../src/livepipe.js"></script>
   <script src="../../src/tabs.js"></script>
@@ -16,24 +15,30 @@
 <body>
 
 <div id="content">
-  <div id="header">
-    <h1>JavaScript unit test file</h1>
-    <p>This file tests <strong>tabs.js</strong>.</p>
+  <div id="a">
+    <ul id="atabs">
+        <li><a href="/test/confirmation/29.html#aone">Tab One</a></li>
+        <li><a href="/test/confirmation/29.html#atwo">Tab Two</a></li>
+    </ul>
+    <div id="aone">one</div>
+    <div id="atwo">two</div>
   </div>
-  <div id="testlog"></div>
-  <div id="sample">
+  <div id="b">
+    <ul id="btabs">
+        <li><a href="#bone">Tab One</a></li>
+        <li><a href="#btwo">Tab Two</a></li>
+    </ul>
+    <div id="bone">one</div>
+    <div id="btwo">two</div>
   </div>
+
 </div>
 
 <script>
-new Test.Unit.Runner({
-    setup: function() {
-
-    },
-
-    teardown : function () {
-
-    }
+    document.observe("dom:loaded", function () {
+        var a = new Control.Tabs("atabs"),
+            b = new Control.Tabs("btabs");
+    });
 </script>
 </body>
 </html>
