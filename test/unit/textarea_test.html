@@ -6,7 +6,7 @@
   <script src="../assets/jsunittest.js"></script>
   <script src="../../lib/prototype.js"></script>
   <script src="../../src/livepipe.js"></script>
-  <script src="../../src/contextmenu.js"></script>
+  <script src="../../src/textarea.js"></script>
   <link rel="stylesheet" href="../assets/unittest.css" type="text/css" />
 </head>
 <body>
@@ -14,11 +14,10 @@
 <div id="content">
   <div id="header">
     <h1>JavaScript unit test file</h1>
-    <p>This file tests <strong>contextmenu.js</strong>.</p>
+    <p>This file tests <strong>textarea.js</strong>.</p>
   </div>
   <div id="testlog"></div>
   <div id="sample">
-    <div id="a">right-click me</div>
   </div>
 </div>
 
@@ -30,13 +29,6 @@ new Test.Unit.Runner({
 
     teardown : function () {
 
-    },
-
-    // Items added with addItem should be enabled by default
-    testAddedItemsEnabledByDefault : function () {
-        var c = new Control.ContextMenu("a");
-        c.addItem({ label : "Test" });
-        this.assert(c.items[0].enabled);
     }
 }); 
 </script>
